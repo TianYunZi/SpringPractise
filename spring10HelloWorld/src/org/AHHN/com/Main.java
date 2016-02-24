@@ -1,0 +1,21 @@
+package org.AHHN.com;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+/**
+ * Created by XJX on 2016/2/23.
+ */
+public class Main {
+	public static void main(String[] args) {
+//		HelloWorld helloWorld=new HelloWorld();
+//		helloWorld.setName("冰雪世界");
+
+		//1、创建spring的IOC容器
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-config.xml");
+		//2、从IOC容器中获取bean实例
+		HelloWorld helloWorld = (HelloWorld) ctx.getBean("helloWorld");
+		//3、调用hello()方法
+		helloWorld.hello();
+	}
+}
