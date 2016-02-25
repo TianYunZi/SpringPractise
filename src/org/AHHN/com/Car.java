@@ -9,7 +9,7 @@ public class Car {
 	private double price;
 	private int maxSpeed;
 
-	public Car(String brand, String corp, int price, int maxSpeed) {
+	public Car(String brand, String corp, double price, int maxSpeed) {
 		this.brand = brand;
 		this.corp = corp;
 		this.price = price;
@@ -25,6 +25,10 @@ public class Car {
 	public Car(String brand, String corp, int maxSpeed) {
 		this.brand = brand;
 		this.corp = corp;
+		this.maxSpeed = maxSpeed;
+	}
+
+	public void setMaxSpeed(int maxSpeed) {
 		this.maxSpeed = maxSpeed;
 	}
 

@@ -17,9 +17,41 @@
     
     <bean id="car2" class="org.AHHN.com.Car">
         <constructor-arg index="0" value="奥迪" type="java.lang.String"/>
-        <constructor-arg index="1" value="大众" type="java.lang.String"/>
+        <!--如果字面值包含特殊字符，可以使用<![CDATA[]]>包裹起来-->
+        <!--属性值可以使用value子节点进行配置-->
+        <constructor-arg index="1" type="java.lang.String">
+            <value><![CDATA[<<<大众^-^-^>>>]]></value>
+        </constructor-arg>
         <constructor-arg index="2" type="int">
             <value>260</value>
         </constructor-arg>
+    </bean>
+    
+    <bean id="person" class="org.AHHN.com.Person">
+        <property name="name" value="Kim"/>
+        <property name="age" value="20"/>
+        <!--&lt;!&ndash;ref应用其它bean&ndash;&gt;-->
+        <!--<property name="car" ref="car"/>-->
+
+        <!--内部bean，不能被外部引用-->
+        <property name="car">
+            <bean class="org.AHHN.com.Car">
+                <constructor-arg index="0" value="宝马" type="java.lang.String"/>
+                <constructor-arg index="1" value="大众" type="java.lang.String"/>
+                <constructor-arg index="2" value="210000" type="double"/>
+            </bean>
+        </property>
+        <property name="car.maxSpeed" value="275"/>
+    </bean>
+
+    <bean id="person2" class="org.AHHN.com.Person">
+        <constructor-arg index="0" value="Jerry" type="java.lang.String"/>
+        <constructor-arg index="1" value="30" type="int"/>
+        <!--<constructor-arg index="2" ref="car2" type="org.AHHN.com.Car"/>-->
+        <!--测试赋值null-->
+        <!--<constructor-arg><null/></constructor-arg>-->
+        <constructor-arg index="2" ref="car2" type="org.AHHN.com.Car"></constructor-arg>
+        <!--为级联属性赋值，注意属性需要初始化后才能为级联属性赋值-->
+        <property name="car.maxSpeed" value="280"/>
     </bean>
 </beans>
