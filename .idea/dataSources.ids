@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - gisprinciple@localhost" uuid="5423523f-e09c-46b9-a876-201a905757b9">
+    <database-info product="MySQL" version="5.7.9-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="gisprinciple"/>
+    <table name="papers" schema="" catalog="gisprinciple" type="TABLE">
+      <column name="id" sqlType="CHAR" precision="32" scale="0" nullable="false" jdbcType="1"/>
+      <column name="name" sqlType="CHAR" precision="16" scale="0" nullable="true" jdbcType="1"/>
+      <column name="unitid" sqlType="CHAR" precision="32" scale="0" nullable="false" jdbcType="1"/>
+      <column name="dbmodel" sqlType="CHAR" precision="16" scale="0" nullable="true" jdbcType="1"/>
+      <column name="spaceref" sqlType="CHAR" precision="16" scale="0" nullable="true" jdbcType="1"/>
+      <column name="ftime" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="fkp_id" columns="unitid" ref-table="units" ref-schema="" ref-catalog="gisprinciple" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="fkp_id" unique="false" columns="unitid"/>
+    </table>
+    <table name="swf_area" schema="" catalog="gisprinciple" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="parent_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="provinccode" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="fk_id" table="units" schema="" catalog="gisprinciple" columns="cityid"/>
+    </table>
+    <table name="units" schema="" catalog="gisprinciple" type="TABLE">
+      <column name="id" sqlType="CHAR" precision="32" scale="0" nullable="false" jdbcType="1"/>
+      <column name="cityid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="fk_id" columns="cityid" ref-table="swf_area" ref-schema="" ref-catalog="gisprinciple" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="fkp_id" table="papers" schema="" catalog="gisprinciple" columns="unitid"/>
+      <index name="fk_id" unique="false" columns="cityid"/>
+    </table>
+  </data-source>
+</component>

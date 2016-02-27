@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+       <bean id="address" class="org.anhn.com.autowire.Address" p:city="上海" p:address="嘉善路123号"></bean>
+
+       <bean id="car" class="org.anhn.com.autowire.Car" p:brand="奥迪" p:price="300000"></bean>
+
+       <!--<bean id="person" class="org.anhn.com.autowire.Person" p:name="小明" p:address-ref="address" p:car-ref="car"></bean>-->
+
+       <!--可以使用autowire属性名自动装配
+           byName根据bean的名字和当前bean的setter风格的属性名进行自动装配
+           若有匹配的则装配，若没有配牌的，则不装配
+           byType根据当前类型和bean类型装配，若IOC容器中有一个以上的类型匹配，则抛异常-->
+       <bean id="person" class="org.anhn.com.autowire.Person" p:name="张明" autowire="byName"></bean>
+</beans>
