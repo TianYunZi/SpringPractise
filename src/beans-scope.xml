@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+       <!--
+           使用bean的scope属性配置bean的作用域
+           singleton：默认值，容器初始化时创建bean实例，在整个容器生命周期中只创建一个bean，单例
+           prototype：原型的，容器初始化时不创建bean实例，而在每次请求时，创建新的bean实例并返回-->
+       -->
+       <bean id="car" class="org.anhn.com.autowire.Car" scope="prototype">
+              <property name="brand" value="丰田"/>
+              <property name="price" value="210000"/>
+       </bean>
+</beans>

@@ -8,6 +8,7 @@ public class Car {
 	private double price;
 
 	public Car() {
+		System.out.println("Car Construct");
 	}
 
 	public Car(String brand, double price) {
