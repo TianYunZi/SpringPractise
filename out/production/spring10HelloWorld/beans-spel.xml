@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="address" class="org.AHHN.com.spel.Address">
+        <!--使用spel为属性配字面值-->
+        <property name="city" value="#{'上海'}"/>
+        <property name="address" value="虹梅路"/>
+    </bean>
+
+    <bean id="car" class="org.AHHN.com.spel.Car">
+        <property name="brand" value="奔驰"/>
+        <property name="price" value="801111"/>
+        <property name="tyrePerimeter" value="#{T(java.lang.Math).PI*80}"/>
+    </bean>
+
+    <bean id="person" class="org.AHHN.com.spel.Person">
+        <!--使用spel引用其它bean-->
+        <property name="car" value="#{car}"/>
+        <!--使用spel引用其它bean属性-->
+        <property name="city" value="#{address.city}"/>
+        <!--使用spel-->
+        <property name="info" value="#{car.price>300000?'金领':'白领'}"/>
+        <property name="name" value="张三"/>
+    </bean>
+</beans>

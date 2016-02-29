@@ -7,6 +7,13 @@
           <file>file://$MODULE_DIR$/src/spring-config.xml</file>
           <file>file://$MODULE_DIR$/src/beans-autowire.xml</file>
           <file>file://$MODULE_DIR$/src/bean-relation.xml</file>
+          <file>file://$MODULE_DIR$/src/beans-properties.xml</file>
+          <file>file://$MODULE_DIR$/src/beans-properties.xml</file>
+          <file>file://$MODULE_DIR$/src/beans-spel.xml</file>
+          <file>file://$MODULE_DIR$/src/spring-cycle.xml</file>
+          <file>file://$MODULE_DIR$/src/beans-factory.xml</file>
+          <file>file://$MODULE_DIR$/src/beans-factorybean.xml</file>
+          <file>file://$MODULE_DIR$/src/beans-annotation.xml</file>
         </fileset>
       </configuration>
     </facet>
@@ -19,5 +26,23 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Spring-4.1.5.RELEASE" level="project" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MAVEN_REPOSITORY$/c3p0/c3p0/0.9.1.2/c3p0-0.9.1.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.16/mysql-connector-java-5.1.16.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

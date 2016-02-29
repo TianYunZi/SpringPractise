@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+       <bean id="car" class="org.AHHN.com.cycle.Car" init-method="init" destroy-method="destroy">
+              <property name="brand" value="奥迪"/>
+       </bean>
+
+       <!--配置bean的后处理器
+       bean：bean实例本身
+       beanName：IOC容器配置的bean名字
+       返回值：是实际上返回给用户的bean，注意：可以在以上两个方法中修改返回的bean甚至返回新bean
+       配置bean的后处理器不需要id，IOC容器自动识别是一个BeanPostProcessor
+       -->
+       <bean class="org.AHHN.com.cycle.MyBeanPostProcessor"></bean>
+</beans>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+       <!--指定spring IOC容器扫描的包-->
+       <!--通过resource-pattern指定扫描资源-->
+       <!--<context:component-scan base-package="org.AHHN.com.annotation" resource-pattern="repository/*.class"></context:component-scan>-->
+
+       <!--context:exclude-filter：子节点指定排除哪些指定表达式的组件-->
+       <!--<context:component-scan base-package="org.AHHN.com.annotation">-->
+              <!--<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"></context:exclude-filter>-->
+       <!--</context:component-scan>-->
+
+       <!--context:include-filter 子节点指定包含哪些表达式的组件，需要use-default-filters=false配合使用-->
+       <!--<context:component-scan base-package="org.AHHN.com.annotation">-->
+              <!--<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>-->
+       <!--</context:component-scan>-->
+
+       <!--<context:component-scan base-package="org.AHHN.com.annotation">-->
+              <!--<context:exclude-filter type="assignable" expression="org.AHHN.com.annotation.repository.UserRepository"/>-->
+       <!--</context:component-scan>-->
+
+       <!--<context:component-scan base-package="org.AHHN.com.annotation" use-default-filters="false">-->
+             <!--<context:include-filter type="assignable" expression="org.AHHN.com.annotation.repository.UserRepository"/>-->
+       <!--</context:component-scan>-->
+
+       <context:component-scan base-package="org.AHHN.com.annotation">
+       </context:component-scan>
+</beans>
